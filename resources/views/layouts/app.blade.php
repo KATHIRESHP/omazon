@@ -31,7 +31,21 @@
                 <span class="nav_logo-name">Threadsta</span>
             </a>
             <div class="nav_list">
-
+                @guest()
+                    <a href="/login" class="nav_link">
+                        <i class="bi bi-box-arrow-in-left"></i>
+                        <span class="nav_name">Login</span>
+                    </a>
+                    <a href="/register" class="nav_link">
+                        <i class="bi bi-person-add"></i>
+                        <span class="nav_name">Register</span>
+                    </a>
+                @else
+                    <a href="" class="nav_link">
+                        <i class="bi bi-grid-fill"></i>
+                        <span class="nav_name">Products</span>
+                    </a>
+                @endguest
             </div>
         </div>
         <form action="{{route('logout')}}" method="POST">
@@ -46,6 +60,6 @@
 <!--Container Main start-->
 <div class="height-100 bg-light">
     <div style="height: 5rem; background-color: transparent"></div>
-        @yield('content')
+    @yield('content')
 </div>
 </body>
