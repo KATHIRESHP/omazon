@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -41,10 +38,16 @@
                         <span class="nav_name">Register</span>
                     </a>
                 @else
-                    <a href="" class="nav_link">
-                        <i class="bi bi-grid-fill"></i>
-                        <span class="nav_name">Products</span>
-                    </a>
+                    @role('admin|seller')
+                        <a href="{{route('products.index')}}" class="nav_link">
+                            <i class="bi bi-grid-fill"></i>
+                            <span class="nav_name">Products</span>
+                        </a>
+                        <a href="{{route('admin.index')}}" class="nav_link">
+                            <i class="bi bi-person"></i>
+                            <span class="nav_name">Users</span>
+                        </a>
+                    @endrole
                 @endguest
             </div>
         </div>

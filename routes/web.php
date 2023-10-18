@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['prefix'=>'admin', "middleware" => 'role:admin'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/{user}', [AdminController::class, 'edit'])->name('user.edit');
     Route::delete('/{user}', [AdminController::class, 'delete'])->name('user.delete');
@@ -34,4 +34,8 @@ Route::group(['prefix'=>'admin'], function () {
     Route::post('/{user}/permission/assign', [AdminController::class, 'givePermission'])->name('users.permission.assign');
     Route::put('/{user}/role/{role}/remove', [AdminController::class, 'removeRole'])->name('users.role.remove');
     Route::post('/{user}/role/assign', [AdminController::class, 'assignRole'])->name('users.role.assign');
+});
+
+Route::group(['prefix' => 'seller', 'middleware' => 'role:seller|admin'], function () {
+    Route::resource('/products', ProductController::class);
 });

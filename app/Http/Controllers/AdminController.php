@@ -9,6 +9,11 @@ use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:admin');
+    }
     public function index()
     {
         $users = User::paginate(8);
