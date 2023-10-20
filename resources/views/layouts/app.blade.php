@@ -14,7 +14,7 @@
 </head>
 
 <body id="body-pd">
-<header class="header" id="header">
+<header class="header" id="header" style="background-color: transparent">
     <div class="header_toggle"><i class='bi bi-three-dots-vertical' id="header-toggle"></i></div>
     @auth()
         <div>{{auth()->user()->name}}</div>
@@ -62,7 +62,7 @@
 </div>
 <!--Container Main start-->
 <div class="bg-light">
-    <div style="height: 5rem; background-color: transparent"></div>
+{{--    <div style="height: 5rem; background-color: transparent"></div>--}}
     @yield('content')
 </div>
 </body>

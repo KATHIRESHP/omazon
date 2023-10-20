@@ -6,6 +6,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductIndexController;
+use App\Http\Controllers\MarketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\ProductIndexController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -39,4 +40,10 @@ Route::group(['prefix'=>'admin', "middleware" => 'role:admin'], function () {
 
 Route::group(['prefix' => 'seller', 'middleware' => 'role:seller|admin'], function () {
     Route::resource('/products', ProductController::class);
+});
+
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', [MarketController::class, 'index'])->name('market.index');
+    Route::get('/choose/{product}', [MarketController::class, 'show'])->name('market.show');
+    Route::get('/order/{product}', [MarketController::class, 'order'])->name('market.order');
 });
