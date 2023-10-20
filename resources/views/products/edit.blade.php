@@ -44,6 +44,24 @@
                             </span>
                         </div>
                         <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="price" id="price" value="{{$product->price}}">
+                            <label for="price">Product price</label>
+                            <span class="text-danger">
+                                @error('price')
+                                {{$message}}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="discount" id="discount" value="{{$product->discount}}">
+                            <label for="discount">Product discount</label>
+                            <span class="text-danger">
+                                @error('discount')
+                                {{$message}}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="form-floating mb-3">
                             <input class="form-control" type="number" name="count" id="count" value="{{$product->count}}">
                             <label for="count">Available count</label>
                             <span class="text-danger">

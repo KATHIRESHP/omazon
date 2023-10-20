@@ -38,11 +38,11 @@
                         <span class="nav_name">Register</span>
                     </a>
                 @else
-                    @role('admin|seller')
                         <a href="{{route('products.index')}}" class="nav_link">
                             <i class="bi bi-grid-fill"></i>
                             <span class="nav_name">Products</span>
                         </a>
+                    @role('admin|seller')
                         <a href="{{route('admin.index')}}" class="nav_link">
                             <i class="bi bi-person"></i>
                             <span class="nav_name">Users</span>
@@ -61,7 +61,7 @@
     </nav>
 </div>
 <!--Container Main start-->
-<div class="height-100 bg-light">
+<div class="bg-light">
     <div style="height: 5rem; background-color: transparent"></div>
     @yield('content')
 </div>
