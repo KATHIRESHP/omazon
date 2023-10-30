@@ -23,9 +23,9 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
-            <a href="/home" class="nav_logo">
-                <i class="bi bi-threads text-light"></i>
-                <span class="nav_logo-name">Threadsta</span>
+            <a href="/" class="nav_logo">
+                <i class="bi bi-cup-hot-fill text-light"></i>
+                <span class="nav_logo-name">Omazon</span>
             </a>
             <div class="nav_list">
                 @guest()

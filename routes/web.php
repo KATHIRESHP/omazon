@@ -45,5 +45,5 @@ Route::group(['prefix' => 'seller', 'middleware' => 'role:seller|admin'], functi
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [MarketController::class, 'index'])->name('market.index');
     Route::get('/choose/{product}', [MarketController::class, 'show'])->name('market.show');
-    Route::get('/order/{product}', [MarketController::class, 'order'])->name('market.order');
+    Route::get('/addcart/{product}', [MarketController::class, 'addCart'])->name('market.add.cart')->middleware('auth');
 });

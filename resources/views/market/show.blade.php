@@ -6,8 +6,11 @@
                     <img
                         src="{{asset('assets/products/'.$product->profile)}}"
                         class="img-thumbnail"
+                        height="100"
+                        width="100"
+                        style="height: 400px;width: 500px;"
                     >
-                <div class="">
+                <div class="w-25">
                     <div class="card h-100">
                         <div class="card-body h-100 d-flex flex-column justify-content-center align-items-start gap-3">
                             <div class="fs-3">
@@ -26,7 +29,7 @@
                         </div>
                         <div class="d-flex justify-content-end gap-4 card-footer">
                             <a class="btn btn-danger" href="{{route('market.index')}}">Cancel</a>
-                            <a class="btn btn-success" href="{{route('market.order', $product->id)}}">Order</a>
+                            <a class="btn btn-success" href="{{route('market.add.cart', $product->id)}}">Order</a>
                         </div>
                     </div>
                 </div>
